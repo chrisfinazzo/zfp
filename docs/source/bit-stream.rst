@@ -145,6 +145,14 @@ Functions
   Allocate a :c:type:`bitstream` struct and associate it with the memory
   buffer allocated by the caller.
 
+.. note::
+  Because buffer reads and writes are made in multiples of words, the caller
+  should take care that *buffer* is word-aligned and that the buffer size,
+  *bytes*, is a multiple of the :ref:`word size <word-size>`.  This function
+  will if necessary shrink the buffer size just enough to meet this
+  requirement.  Note that :c:func:`zfp_stream_maximum_size` ensures that the
+  returned buffer size is a multiple of the word size.
+
 ----
 
 .. c:function:: void stream_close(bitstream* stream)

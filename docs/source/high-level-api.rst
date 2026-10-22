@@ -562,7 +562,8 @@ Compressed Stream
   number of bytes is known, as returned by :c:func:`zfp_compress`.
 
   This function returns zero if the size exceeds what can be represented in
-  a :code:`size_t`.
+  a ``size_t``.  Otherwise, the returned size is a multiple of the
+  configured :ref:`word size <word-size>` (1, 2, 4, or 8 bytes).
 
 
 .. _hl-func-stream:
